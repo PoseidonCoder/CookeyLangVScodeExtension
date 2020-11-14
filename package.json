@@ -1,0 +1,25 @@
+{
+    "name": "cookeylang",
+    "displayName": "cookeyLang",
+    "description": "Syntax highlighting and language support for CookeyLang",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "cookey",
+            "aliases": ["cookeyLang", "cookey"],
+            "extensions": [".clf"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "cookey",
+            "scopeName": "source.clf",
+            "path": "./src/syntaxes/cookey.tmLanguage.json"
+        }]
+    }
+}
