@@ -10,16 +10,25 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "cookey",
-            "aliases": ["cookeyLang", "cookey"],
-            "extensions": [".clf"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "cookey",
-            "scopeName": "source.clf",
-            "path": "./src/syntaxes/cookey.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "cookey",
+                "aliases": [
+                    "cookeyLang",
+                    "cookey"
+                ],
+                "extensions": [
+                    ".clf"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "cookey",
+                "scopeName": "source.clf",
+                "path": "./src/syntaxes/cookey.tmLanguage.json"
+            }
+        ]
     }
 }
