@@ -1,10 +1,16 @@
-%% test
+#!/bin
+%% single-line comments
 %*
-wow
-very multiline
+multiline comments
+are better!
 *%
 
 printLine("Hello\u{34}!\m312wow\n\0");
+printLine('
+seriously?
+\n
+single quoted strings are ok ig
+');
 
 forrep (i, 5, 6) {
   printLine(i);
@@ -25,3 +31,20 @@ if (add(5, 6) < 11) {
 } el {
   printLine("5 + 6 = 11");
 }
+
+if (true or false and true) {
+  printLine("true or false and true!");
+}
+
+class Something {
+  construct() {
+    this.value = 5;
+  }
+
+  method() {
+    printLine(this.value);
+  }
+}
+
+final PI = 3.141592653589793238462643383279502;
+final myLambda = lambda (a, b): a + b;

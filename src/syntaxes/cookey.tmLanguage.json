@@ -1,20 +1,24 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "cookeyLang",
+    "name": "CookeyLang",
     "patterns": [
         {
             "include": "#keywords"
         },
         {
             "include": "#strings"
+        },
+        {
+            "include": "#strings2"
         }
     ],
+    "firstLineMatch": "^#!.*",
     "repository": {
         "keywords": {
             "patterns": [
                 {
                     "name": "keyword.control.cookey",
-                    "match": "\\b(if|el|while|forrep|for|ret|function|or|and)\\b"
+                    "match": "\\b(if|el|while|forrep|for|ret)\\b"
                 },
                 {
                     "name": "comment",
@@ -27,19 +31,23 @@
                 },
                 {
                     "name": "constant.numeric",
-                    "match": "\\d"
+                    "match": "\\d(?:\\.\\d+)?"
                 },
                 {
                     "name": "keyword.operator",
-                    "match": "[+*\\/=\\-<>^;\\.{}()]"
+                    "match": "[+*\\/=%\\-<>^;\\.{}()]"
                 },
                 {
-                    "name": "keyword.other",
-                    "match": "true|false|NaV"
+                    "name": "constant.language",
+                    "match": "\\b(true|false|NaV|or|and|this)\\b"
                 },
                 {
                     "name": "storage.modifier",
-                    "match": "var|final"
+                    "match": "\\b(var|final)\\b"
+                },
+                {
+                    "name": "storage.type",
+                    "match": "\\b(function|class|lambda)\\b"
                 }
             ]
         },
@@ -49,10 +57,23 @@
             "end": "\"",
             "patterns": [
                 {
-                    "name": "constant.character.escape.cookey",
-                    "match": "\\\\(?:m\\d+|u{.+}|.)"
+                    "include": "#escape"
                 }
             ]
+        },
+        "strings2": {
+            "name": "string.quoted.single.cookey",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                {
+                    "include": "#escape"
+                }
+            ]
+        },
+        "escape": {
+            "name": "constant.character.escape.cookey",
+            "match": "\\\\(?:m\\d+|u{.+}|.)"
         }
     },
     "scopeName": "source.clf"

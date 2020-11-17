@@ -1,6 +1,6 @@
 {
     "name": "cookeylang",
-    "displayName": "cookeyLang",
+    "displayName": "CookeyLang",
     "description": "Syntax highlighting and language support for CookeyLang",
     "version": "0.0.1",
     "engines": {
