@@ -2,7 +2,7 @@
     "name": "cookeylang",
     "displayName": "CookeyLang",
     "description": "Syntax highlighting and language support for CookeyLang",
-    "version": "0.0.1",
+    "version": "1.1.0",
     "engines": {
         "vscode": "^1.51.0"
     },
