@@ -3,11 +3,13 @@
     "name": "CookeyLang",
 
     "patterns": [{
+        "include": "#comments"
+    }, {
         "include": "#keywords"
     }, {
-        "include": "#strings"
+        "include": "#stmt"
     }, {
-        "include": "#comments"
+        "include": "#strings"
     }],
 
     "firstLineMatch": "^#!.*",
@@ -16,22 +18,28 @@
         "keywords": {
             "patterns": [{
                 "name": "keyword.control.cookey",
-                "match": "\\b(if|el|while|forrep|for|ret)\\b"
+                "match": "\\b(if|el|while|forrep|for|ret|or|and)\\b"
             }, {
-                "name": "constant.numeric",
+                "name": "constant.numeric.cookey",
                 "match": "\\d(?:\\.\\d+)?"
             }, {
-                "name": "keyword.operator",
+                "name": "keyword.operator.cookey",
                 "match": "[+*\\/=%\\-<>^;\\.{}()]"
             }, {
-                "name": "constant.language",
-                "match": "\\b(true|false|NaV|or|and|this)\\b"
+                "name": "constant.language.boolean.cookey",
+                "match": "\\b(true|false|extends)\\b"
             }, {
-                "name": "storage.modifier",
-                "match": "\\b(var|final)\\b"
+                "name": "constant.language.null.cookey",
+                "match": "\\b(NaV)\\b"
             }, {
-                "name": "storage.type",
+                "name": "storage.type.cookey",
                 "match": "\\b(function|class|lambda)\\b"
+            }, {
+                "name": "variable.language.this.cookey",
+                "match": "\\b(this)\\b"
+            }, {
+                "name": "variable.language.superClass.cookey",
+                "match": "\\b(superClass)\\b"
             }]
         },
         "strings": {
@@ -53,12 +61,25 @@
         },
         "comments": {
             "patterns": [{
-                "name": "comment",
+                "name": "comment.cookey",
                 "match": "%%.*"
             }, {
-                "name": "comment.block",
+                "name": "comment.block.cookey",
                 "begin": "%\\*",
                 "end": "\\*%"
+            }]
+        },
+        "stmt": {
+            "patterns": [{
+                "match": "\\b(var|final)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+                "captures": {
+                    "1": {
+                        "name": "storage.modifier.cookey"
+                    },
+                    "2": {
+                        "name": "support.variable"
+                    }
+                }
             }]
         },
         "escape": {
@@ -66,6 +87,6 @@
             "match": "\\\\(?:m\\d+|u{.+}|.)"
         }
     },
-    
+
     "scopeName": "source.clf"
 }

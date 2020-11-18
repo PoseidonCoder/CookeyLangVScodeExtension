@@ -46,5 +46,15 @@ class Something {
   }
 }
 
+class Other extends Something {
+  construct() {
+    superClass.construct();
+  }
+}
+
 final PI = 3.141592653589793238462643383279502;
 final myLambda = lambda (a, b): a + b;
+final indeterminate = NaV;
+
+final test = Other();
+test.method();
