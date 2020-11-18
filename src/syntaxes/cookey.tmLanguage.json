@@ -1,80 +1,71 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "CookeyLang",
-    "patterns": [
-        {
-            "include": "#keywords"
-        },
-        {
-            "include": "#strings"
-        },
-        {
-            "include": "#strings2"
-        }
-    ],
+
+    "patterns": [{
+        "include": "#keywords"
+    }, {
+        "include": "#strings"
+    }, {
+        "include": "#comments"
+    }],
+
     "firstLineMatch": "^#!.*",
+
     "repository": {
         "keywords": {
-            "patterns": [
-                {
-                    "name": "keyword.control.cookey",
-                    "match": "\\b(if|el|while|forrep|for|ret)\\b"
-                },
-                {
-                    "name": "comment",
-                    "match": "%%.*"
-                },
-                {
-                    "name": "comment.block",
-                    "begin": "%\\*",
-                    "end": "\\*%"
-                },
-                {
-                    "name": "constant.numeric",
-                    "match": "\\d(?:\\.\\d+)?"
-                },
-                {
-                    "name": "keyword.operator",
-                    "match": "[+*\\/=%\\-<>^;\\.{}()]"
-                },
-                {
-                    "name": "constant.language",
-                    "match": "\\b(true|false|NaV|or|and|this)\\b"
-                },
-                {
-                    "name": "storage.modifier",
-                    "match": "\\b(var|final)\\b"
-                },
-                {
-                    "name": "storage.type",
-                    "match": "\\b(function|class|lambda)\\b"
-                }
-            ]
+            "patterns": [{
+                "name": "keyword.control.cookey",
+                "match": "\\b(if|el|while|forrep|for|ret)\\b"
+            }, {
+                "name": "constant.numeric",
+                "match": "\\d(?:\\.\\d+)?"
+            }, {
+                "name": "keyword.operator",
+                "match": "[+*\\/=%\\-<>^;\\.{}()]"
+            }, {
+                "name": "constant.language",
+                "match": "\\b(true|false|NaV|or|and|this)\\b"
+            }, {
+                "name": "storage.modifier",
+                "match": "\\b(var|final)\\b"
+            }, {
+                "name": "storage.type",
+                "match": "\\b(function|class|lambda)\\b"
+            }]
         },
         "strings": {
-            "name": "string.quoted.double.cookey",
-            "begin": "\"",
-            "end": "\"",
-            "patterns": [
-                {
+            "patterns": [{
+                "name": "string.quoted.double.cookey",
+                "begin": "\"",
+                "end": "\"",
+                "patterns": [{
                     "include": "#escape"
-                }
-            ]
+                }]
+            }, {
+                "name": "string.quoted.single.cookey",
+                "begin": "'",
+                "end": "'",
+                "patterns": [{
+                    "include": "#escape"
+                }]
+            }]
         },
-        "strings2": {
-            "name": "string.quoted.single.cookey",
-            "begin": "'",
-            "end": "'",
-            "patterns": [
-                {
-                    "include": "#escape"
-                }
-            ]
+        "comments": {
+            "patterns": [{
+                "name": "comment",
+                "match": "%%.*"
+            }, {
+                "name": "comment.block",
+                "begin": "%\\*",
+                "end": "\\*%"
+            }]
         },
         "escape": {
             "name": "constant.character.escape.cookey",
             "match": "\\\\(?:m\\d+|u{.+}|.)"
         }
     },
+    
     "scopeName": "source.clf"
 }
