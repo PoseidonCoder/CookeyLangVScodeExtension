@@ -1,34 +1,43 @@
 {
-    "name": "cookeylang",
-    "displayName": "CookeyLang",
-    "description": "Syntax highlighting and language support for CookeyLang",
-    "version": "1.1.0",
-    "engines": {
-        "vscode": "^1.51.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "cookey",
-                "aliases": [
-                    "cookeyLang",
-                    "cookey"
-                ],
-                "extensions": [
-                    ".clf"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "cookey",
-                "scopeName": "source.clf",
-                "path": "./src/syntaxes/cookey.tmLanguage.json"
-            }
-        ]
-    }
+	"name": "cookeylang",
+	"displayName": "CookeyLang",
+	"description": "Syntax highlighting and language support for CookeyLang",
+	"version": "1.1.0",
+	"publisher": "CookeyLangVSCode",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"url": "git+https://github.com/CookeyLang/CookeyLangVScodeExtension.git"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "cookey",
+				"aliases": [
+					"cookeyLang",
+					"cookey"
+				],
+				"extensions": [
+					".clf"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "cookey",
+				"scopeName": "source.clf",
+				"path": "./src/syntaxes/cookey.tmLanguage.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "bbf3ad30-c44d-4971-af5f-f2f0cb4d09dd",
+		"publisherDisplayName": "cookeylang-vsc",
+		"publisherId": "c0f39744-9c36-4be9-b2c0-49e1d8935b56"
+	}
 }
