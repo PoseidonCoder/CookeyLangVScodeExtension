@@ -5,11 +5,13 @@
     "patterns": [{
         "include": "#comments"
     }, {
-        "include": "#keywords"
+        "include": "#decl"
     }, {
         "include": "#stmt"
     }, {
         "include": "#strings"
+    }, {
+        "include": "#keywords"
     }],
 
     "firstLineMatch": "^#!.*",
@@ -18,30 +20,37 @@
         "keywords": {
             "patterns": [{
                 "name": "keyword.control.cookey",
-                "match": "\\b(if|el|while|forrep|for|ret|or|and)\\b"
+                "match": "\\b(ret|or|and)\\b"
             }, {
                 "name": "constant.numeric.cookey",
                 "match": "\\d(?:\\.\\d+)?"
             }, {
                 "name": "keyword.operator.cookey",
-                "match": "[+*\\/=%\\-<>^;\\.{}()]"
+                "match": "[+*\\/=%\\-<>^;\\.{}()@?:]"
             }, {
                 "name": "constant.language.boolean.cookey",
-                "match": "\\b(true|false|extends)\\b"
+                "match": "\\b(true|false)\\b"
             }, {
                 "name": "constant.language.null.cookey",
                 "match": "\\b(NaV)\\b"
             }, {
                 "name": "storage.type.cookey",
-                "match": "\\b(function|class|lambda)\\b"
+                "match": "\\b(function|class|lambda|var|final)\\b"
             }, {
                 "name": "variable.language.this.cookey",
                 "match": "\\b(this)\\b"
             }, {
                 "name": "variable.language.superClass.cookey",
                 "match": "\\b(superClass)\\b"
+            }, {
+                "name": "storage.modifier",
+                "match": "\\b(extends)\\b"
+            }, {
+                "name": "support.variable.cookey",
+                "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\b"
             }]
         },
+
         "strings": {
             "patterns": [{
                 "name": "string.quoted.double.cookey",
@@ -59,6 +68,11 @@
                 }]
             }]
         },
+        "escape": {
+            "name": "constant.character.escape.cookey",
+            "match": "\\\\(?:m\\d+|u{.+}|.)"
+        },
+
         "comments": {
             "patterns": [{
                 "name": "comment.cookey",
@@ -69,6 +83,7 @@
                 "end": "\\*%"
             }]
         },
+
         "stmt": {
             "patterns": [{
                 "match": "\\b(var|final)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
@@ -77,14 +92,40 @@
                         "name": "storage.modifier.cookey"
                     },
                     "2": {
-                        "name": "support.variable"
+                        "name": "support.variable.cookey"
+                    }
+                }
+            }, {
+                "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\b\\s*\\(",
+                "captures": {
+                    "1": {
+                        "name": "support.function.cookey"
                     }
                 }
             }]
         },
-        "escape": {
-            "name": "constant.character.escape.cookey",
-            "match": "\\\\(?:m\\d+|u{.+}|.)"
+
+        "decl": {
+            "patterns": [{
+                "name": "keyword.control.cookey",
+                "match": "\\b(if|el|while|forrep|for)\\b"
+            }, {
+                "match": "\\b(class)\\s+([A-Za-z_][A-Za-z0-9_]*)(?:\\s+(extends)\\s+([A-Za-z_][A-Za-z0-9_]*))?\\b",
+                "captures": {
+                    "1": {
+                        "name": "storage.type.class.cookey"
+                    },
+                    "2": {
+                        "name": "entity.name.class.cookey"
+                    },
+                    "3": {
+                        "name": "storage.modifier.cookey"
+                    },
+                    "4": {
+                        "name": "entity.name.class.cookey"
+                    }
+                }
+            }]
         }
     },
 

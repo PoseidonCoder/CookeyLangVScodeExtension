@@ -57,4 +57,9 @@ final myLambda = lambda (a, b): a + b;
 final indeterminate = NaV;
 
 final test = Other();
-test.method();
+test.method ();
+
+{
+  var other;
+  printLine("Hi!");
+}
