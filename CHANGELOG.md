@@ -12,3 +12,8 @@
 ### Most of Cookeylang2
 - Added class support
 - Variables are now highlighted more correctly
+
+## [1.2.5] - 2020-11-18
+### Fixed Features
+- Added `exit` calls.
+- Fixed shebangs
