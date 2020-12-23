@@ -1,0 +1,22 @@
+{
+    "for loop": {
+        "prefix": ["for"],
+        "body": ["for (var i = ${1}; i < ${2}; i++) {\n\t${3}\n}"],
+        "description": "a for loop"
+    },
+    "function": {
+        "prefix": ["func", "fun", "f"],
+        "body": ["function ${1}(${2}) {\n\t${4}\n}"],
+        "description": "a for loop"
+    },
+    "if statement": {
+        "prefix": ["if"],
+        "body": ["if (${1}) {\n\t${2}\n}"],
+        "description": "a for loop"
+    },
+    "else if statement": {
+        "prefix": ["el", "el if"],
+        "body": ["el if (${1}) {\n\t${2}\n}"],
+        "description": "a for loop"
+    }
+}
